@@ -3,12 +3,15 @@ import SeriesList from '../../components/SeriesList';
 import Loader from '../../components/Loader';
 import Intro from '../../components/Intro';
 
+import TextField from '@material-ui/core/TextField';
+
 class Series extends Component{
 
     state={
         series:[],
         seriesName:'',
-        isFetching: false
+        isFetching: false,
+        importantText:''
     }
 
 
@@ -20,31 +23,39 @@ class Series extends Component{
     }
 
     render(){
-        const {series, seriesName, isFetching}=this.state
+        const {series, seriesName, isFetching,importantText}=this.state
         return(
             <div>
                 <Intro message={"Here you can find all of your most loved series"}/>
                 <div>
-                    <input
+                    <TextField
+                        id="search"
+                        label="Search Series"
+                        type="search"
+                        margin="normal"
                         value={seriesName}
-                        type="text" onChange={this.onSeriesInputChange}/>
+                        onChange={this.onSeriesInputChange}
+                        helperText={importantText}
+                    />
                 </div>
-                {
-                    !isFetching && series.length === 0 && seriesName.trim() === ""
-                    &&
+                <div>
+                    {
+                        !isFetching && series.length === 0 && seriesName.trim() === ""
+                        &&
                         <p>Plese enter series name into the input</p>
-                }
-                {
-                    !isFetching && series.length === 0 && seriesName.trim() !== ""
-                    &&
-                    <p>No TV Series have been found with this name</p>
-                }
-                {
-                    isFetching && <Loader/>
-                }
-                {
-                    !isFetching && <SeriesList list={this.state.series}/>
-                }
+                    }
+                    {
+                        !isFetching && series.length === 0 && seriesName.trim() !== ""
+                        &&
+                        <p>No TV Series have been found with this name</p>
+                    }
+                    {
+                        isFetching && <Loader/>
+                    }
+                    {
+                        !isFetching && <SeriesList list={this.state.series}/>
+                    }
+                </div>
             </div>
         )
     }
