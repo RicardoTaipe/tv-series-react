@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 import {Link} from 'react-router-dom';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
