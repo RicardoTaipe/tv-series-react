@@ -7,7 +7,7 @@ You can search for tv series and get information through TVMAZE API
 Material UI was used to design the UI
 
 ## Live
-Click here [https://6zz24oz2xn.codesandbox.io/](url)
+Click here <https://6zz24oz2xn.codesandbox.io/>
 
 ## Demo
 
